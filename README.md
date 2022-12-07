@@ -1,4 +1,4 @@
-# EE215-Project
+# Basic OpenCV GUI
 This project was started as practice for Python and to experiment with OpenCV functions.
 
 To compile, run the following in your IDE console:
