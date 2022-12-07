@@ -2,7 +2,8 @@
 This project was started as practice for Python and to experiment with OpenCV functions.
 
 To compile, run the following in your IDE console:
-pip install opencv-python
+pip install opencv-python 
+and 
 pip install tk
 
 Next, download this pre-trained cascade model:
