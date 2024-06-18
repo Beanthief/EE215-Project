@@ -75,21 +75,16 @@ class OpenCVGUI:
         if self.validate_image() == False:
             return
 
-        # Create a grayscale copy of the image for HOG
-        graysample = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
-
         # Set up the detector with default parameters and trained model
         hog = cv2.HOGDescriptor()
         hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
         # Detect people in the image
-        (rects, _) = hog.detectMultiScale(graysample, winStride=(8, 8), padding=(18, 18), scale=1.07)
+        (rects, _) = hog.detectMultiScale(self.image, winStride=(6, 6), padding=(8, 8), scale=1.03)
 
         # Draw a rectangle around the people
         for (x, y, w, h) in rects:
-            # Remove any rectangles that are too small
-            if w > 100 and h > 200:
-                cv2.rectangle(self.image, (x + 40, y + 35), (x + w - 40, y + h - 35), (0, 0, 255), 2)
+            cv2.rectangle(self.image, (x, y), (x+w, y+h), (0, 0, 255), 2)
 
         # Show the image
         self.display_image()
